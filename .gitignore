@@ -1,5 +1,8 @@
 virtual/
 *.pyc
-pycache/
+__pycache__/
 .env
 .vscode
+*.log
+*.pot
+local_settings.py
