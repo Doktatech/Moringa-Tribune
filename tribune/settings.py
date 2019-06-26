@@ -18,9 +18,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'news.apps.NewsConfig',    
-    'bootstrap3'
+    'bootstrap3',
+    'tinymce',    
+    
 ]
-
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -50,6 +51,8 @@ TEMPLATES = [
         },
     },
 ]
+# url to redirect after successfull login
+LOGIN_REDIRECT_URL = '/'
 
 WSGI_APPLICATION = 'tribune.wsgi.application'
 if config('MODE')=='dev':
@@ -105,4 +108,9 @@ STATICFILES_DIRS = [
 ]
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+EMAIL_USE_TLS = config('EMAIL_USE_TLS')
+EMAIL_HOST = config('EMAIL_HOST')
+EMAIL_PORT = config('EMAIL_PORT')
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 django_heroku.settings(locals())
